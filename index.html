@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DANIELLE STEMPER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">DANIELLE STEMPER</a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="bio.html">Bio</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <canvas id="dots"></canvas>
+    <div class="hero-content">
+      <p class="eyebrow">Portfolio</p>
+      <h1 class="name">DANIELLE STEMPER</h1>
+      <p class="lede">Hi! I’m a graduate student working toward a Master of Science in Data Analytics &amp; Visualization at Pratt Institute. I’m interested in data-driven research, public policy, and data journalism. Many of the projects I have produced throughout my graduate career have centered around historic data research, labor and economic trends, and public policy initiatives. You can find examples of my work by browsing the Portfolio page or the menu below.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="tag">01</span><h2>GIS, Data Analysis, &amp; Visualizations</h2></div>
+    <div class="rows">
+      <div class="row"><a href="tableau-labor.html">
+        <span class="title">Visualizing Historic Labor Data</span><span class="type">Tableau</span>
+        <span class="arrow">↗</span>
+      </a></div>
+      <div class="row"><a href="arcgis-data-centers.html">
+        <span class="title">Data Center Geographic Analysis</span><span class="type">ArcGIS</span>
+        <span class="arrow">↗</span>
+      </a></div>
+      <div class="row"><a href="energy-dash.html">
+        <span class="title">Data Center Analysis Dashboard</span><span class="type">R</span>
+        <span class="arrow">↗</span>
+      </a></div>
+      <div class="row"><a href="python-research.html">
+        <span class="title">Simplifying Research Workflows in Colab</span><span class="type">Python</span>
+        <span class="arrow">↗</span>
+      </a></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="tag">02</span><h2>Design &amp; Research</h2></div>
+    <div class="rows">
+      <div class="row"><a href="venmo-iou.html">
+        <span class="title">Designing for Close-knit Communities: Venmo IOU</span>
+        <span class="arrow">↗</span>
+      </a></div>
+      <div class="row"><a href="inspired-minds.html">
+        <span class="title">Creating an Engaging &amp; Intuitive Experience for Inspired Minds Art Center</span>
+        <span class="arrow">↗</span>
+      </a></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="tag">03</span><h2>Writing</h2></div>
+    <div class="rows">
+      <div class="row"><a href="commentary-bls.html">
+        <span class="title">Privacy, Democracy, and the BLS Controversy</span>
+        <span class="arrow">↗</span>
+      </a></div>
+      <div class="row"><a href="info-workers-commentary-1.html">
+        <span class="title">Information Workers: A Source of Accountability in an Information Civilization</span>
+        <span class="arrow">↗</span>
+      </a></div>
+      <div class="row"><a href="data-info-know-commentary.html">
+        <span class="title">Data, Information, Knowledge &amp; the Three Paradigms of HCI</span>
+        <span class="arrow">↗</span>
+      </a></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>Danielle Stemper</h3><p>New York, NY</p></div>
+    <div><h3>Contact</h3><p><a href="mailto:daniellestemp@gmail.com">daniellestemp@gmail.com</a></p></div>
+    <div><h3>Github</h3><p><a href="https://github.com/daniellestemp" target="_blank" rel="noopener">github.com/daniellestemp</a></p></div>
+    <div><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/danielle-stemper/" target="_blank" rel="noopener">in/danielle-stemper/</a></p></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Danielle Stemper 2026</span>
+    <span>Made with Squarespace</span>
+  </div>
+</footer>
+
+<script>
+  const canvas = document.getElementById('dots');
+  const ctx = canvas.getContext('2d');
+  let w, h, points = [];
+
+  function resize(){
+    const hero = canvas.parentElement;
+    w = canvas.width = hero.clientWidth;
+    h = canvas.height = hero.clientHeight;
+    const gap = 34;
+    points = [];
+    for(let y = gap/2; y < h; y += gap){
+      for(let x = gap/2; x < w; x += gap){
+        points.push({x, y, ox:x, oy:y});
+      }
+    }
+  }
+
+  let mouse = {x:-9999, y:-9999};
+  canvas.parentElement.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - r.left;
+    mouse.y = e.clientY - r.top;
+  });
+  canvas.parentElement.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of points){
+      const dx = mouse.x - p.ox, dy = mouse.y - p.oy;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const force = Math.max(0, 1 - dist / 140);
+      p.x += ((p.ox - force*dx*0.35) - p.x) * 0.12;
+      p.y += ((p.oy - force*dy*0.35) - p.y) * 0.12;
+      const r = 1.1 + force * 1.6;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(10,10,10,${0.14 + force*0.5})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R | US Data Center &amp; Energy Dashboard — DANIELLE STEMPER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">DANIELLE STEMPER</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="bio.html">Bio</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="project-hero">
+    <div class="tags">
+      <span class="tag-chip">R</span>
+      <span class="tag-chip">Shiny</span>
+      <span class="tag-chip">Leaflet</span>
+      <span class="tag-chip">US Energy Info Admin</span>
+      <span class="tag-chip">CDC</span>
+    </div>
+    <h1>Exploring the Impact of the U.S. Data Center Boom: An Interactive Dashboard</h1>
+    <p class="project-lede">Data centers are the physical infrastructure behind everything digital, yet they've stayed largely out of sight — until recently. This project set out to capture how Americans are reacting to the data center boom and what the future might hold.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>01 · Challenge</h2>
+    <p>What began as a look at AI policy across levels of government turned into a broader exploration of the data center boom sweeping the U.S. As construction accelerates, it's drawing scrutiny from utility regulators, environmental advocates, and local governments — and pushback is spreading at the municipal level, from neighborhood votes against proposals to construction moratoriums to renewed federal interest in AI regulation.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>02 · Solution</h2>
+    <p>To capture the many angles of the data-center/energy relationship in one place, I built an interactive dashboard in R using <em>shiny, tidyverse, sf, tigris, dplyr,</em> and <em>leaflet</em>.</p>
+    <div class="links-row" style="margin-bottom:16px;">
+      <a class="link-chip" href="https://daniellestemp.shinyapps.io/DataCenterDash/" target="_blank" rel="noopener">Explore the live dashboard ↗</a>
+    </div>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/92fe4777-41dc-43e1-a945-2b4a9c983f30/Untitled+design.jpg" alt="Interactive data center and energy dashboard preview">
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>03 · Process</h2>
+    <h3>Media audit</h3>
+    <p>Recurring themes across media coverage: AI literacy, data-center energy use and regulation efforts, AI tool adoption and its opponents, and where new construction is concentrated along with resident pushback.</p>
+    <h3>Outreach &amp; literature review</h3>
+    <p>I reached out to individuals and organizations tracking local data-center activity and AI policy to hear first-hand accounts, and reviewed existing research to better understand key players, trends, and regulatory efforts.</p>
+    <h3>Data exploration &amp; analysis</h3>
+    <p>Key sources: the U.S. Energy Information Administration (residential prices and volatility), Business Insider (confirmed data center locations), and the CDC/ATSDR 2022 Social Vulnerability Index.</p>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/ebe34228-4c33-4a8f-91c4-b36e8da31753/dashboard-process.jpg" alt="Process diagram for the data center dashboard project">
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>04 · Reflection &amp; Findings</h2>
+    <p>Staying within scope was a real challenge given how much legal and cultural nuance exists between states, cities, and towns — the project ultimately required a lot of flexibility, following the research where it led rather than the original AI-policy framing.</p>
+    <p>An interactive dashboard felt like the right format for a topic with this many layers. The connection between Big Tech's AI push and data center construction is becoming clearer to the public, even as companies like Oracle, Amazon, and Microsoft conduct layoffs while investing heavily in AI — a contrast that's fueling public wariness about AI's promised benefits.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>Links &amp; Documentation</h2>
+    <div class="links-row">
+      <a class="link-chip" href="https://github.com/daniellestemp/data-center-dashboard" target="_blank" rel="noopener">GitHub README &amp; code ↗</a>
+      <a class="link-chip" href="https://docs.google.com/document/d/1CuSC5DOqw7UgaCH6952YUNzjKNDaeuaqXx-xI0aV8BQ/edit?usp=sharing" target="_blank" rel="noopener">Documentation &amp; timeline ↗</a>
+    </div>
+  </div>
+
+  <figure style="margin-top:0;">
+    <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/9b3d3d30-e2b1-439b-8d86-349c9ec1af49/dashboard-readme.jpg" alt="GitHub README screenshot for the dashboard project">
+  </figure>
+
+  <div class="course-meta">
+    <strong>INFO 696 Advanced Projects in Visualization</strong><br>
+    Professor Benjamin Zweig<br>
+    Pratt Institute School of Information | Spring 2026
+  </div>
+
+  <div class="prevnext">
+    <a href="arcgis-data-centers.html">← R | ArcGIS | US Data Center Analysis</a>
+    <a href="python-research.html">Python | Simplifying Research Workflows →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>Danielle Stemper</h3><p>New York, NY</p></div>
+    <div><h3>Contact</h3><p><a href="mailto:daniellestemp@gmail.com">daniellestemp@gmail.com</a></p></div>
+    <div><h3>Github</h3><p><a href="https://github.com/daniellestemp" target="_blank" rel="noopener">github.com/daniellestemp</a></p></div>
+    <div><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/danielle-stemper/" target="_blank" rel="noopener">in/danielle-stemper/</a></p></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Danielle Stemper 2026</span>
+    <span>Made with Squarespace</span>
+  </div>
+</footer>
+
+</body>
+</html>

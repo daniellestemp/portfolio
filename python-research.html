@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python | Simplifying Research Workflows — DANIELLE STEMPER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">DANIELLE STEMPER</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="bio.html">Bio</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="project-hero">
+    <div class="tags">
+      <span class="tag-chip">Python</span>
+      <span class="tag-chip">Bureau of Labor Statistics</span>
+    </div>
+    <h1>Simplifying My Research Workflow with get-bls-data</h1>
+    <p class="project-lede">get-bls-data is a Python function that quickly pulls Bureau of Labor Statistics (BLS) data through its public API — built to smooth out a clunky part of my own research workflow.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>01 · Challenge</h2>
+    <p>Finding a single data point for a specific variable is surprisingly hard, even though it's a core part of data analysis and reporting. Even organized analysts can get lost navigating clunky government databases and juggling spreadsheets.</p>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/be6fdd6a-c60e-45ee-bba2-ccc4c973af85/Screenshot+2026-03-18+at+4.17.19%E2%80%AFPM.png" alt="Screenshot of BLS data browsing challenge">
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>02 · Solution</h2>
+    <p>get-bls-data references specific BLS data series IDs and returns the corresponding values in a clean table — the user enters a year, and the function displays the data for it.</p>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/105c6555-bb9b-4dcc-9e38-b3c673d74db0/Screenshot+2026-03-18+at+4.19.54%E2%80%AFPM.png" alt="get-bls-data function output example">
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>03 · Process</h2>
+    <h3>Accessing APIs</h3>
+    <p>BLS's sample developer code runs, but it's essentially uncommented. Working through the samples helped build general familiarity with the API, though much of it was either beyond my Python experience at the time or too narrow to reuse directly — so I went back to the sample code itself and iterated until it worked.</p>
+    <h3>Identifying the right series</h3>
+    <p>Unlike the Census Bureau, BLS doesn't provide a lookup key for its series IDs — just a format for each data category, leaving users to assemble the correct combination. After exploring BLS's data tools, I landed on the union-affiliation series from the Current Population Survey as my target data.</p>
+    <h3>Understanding data structure</h3>
+    <p>A lot of troubleshooting came down to understanding how BLS structures its series — including the difference between "annual" and "monthly" series — which BLS's Series Report tool helped clarify.</p>
+    <div class="img-pair">
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/e95149fd-a480-4e87-b5a8-a77eb7f79f26/Screenshot+2025-12-19+at+12.03.10%E2%80%AFPM.png" alt="BLS series report screenshot">
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/c8928dff-4ccb-4fcf-ab25-2e4e9d41ad9f/Screenshot+2025-12-19+at+12.02.55%E2%80%AFPM.png" alt="BLS data structure screenshot">
+    </div>
+  </div>
+
+  <div class="art-section">
+    <h2>04 · Reflections</h2>
+    <ul>
+      <li><strong>Limitations:</strong> the function currently only fetches the series hard-coded into it for a given year, though it's structured simply enough that swapping in new series IDs should be straightforward.</li>
+      <li><strong>A starting point for analysis:</strong> it could support basic statistics, like tracking the average union membership rate from 2020–2024 or visualizing trends over time.</li>
+      <li><strong>A reusable framework:</strong> not a one-size-fits-all solution, but a reasonable starting template for working with other public APIs.</li>
+      <li><strong>Trouble-shooting pays off:</strong> nearly two and a half weeks were spent on the "extract and process results" section before realizing the issue was inconsistent date formats — a small fix that unlocked the rest of the build.</li>
+      <li><strong>Coding in plain language first,</strong> then translating to code, opened up new problem-solving approaches.</li>
+    </ul>
+  </div>
+
+  <div class="art-section">
+    <h2>Links &amp; Documentation</h2>
+    <div class="links-row">
+      <a class="link-chip" href="https://github.com/daniellestemp/BLS-data-finder" target="_blank" rel="noopener">GitHub README &amp; code ↗</a>
+      <a class="link-chip" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqClVxpE8dfYV9_5ppzfGURotYqIlLbOExVHHY7xL9IFhJE0HeXTQPFiNORArk3Vkxb4KUZeRXWVpr/pubhtml" target="_blank" rel="noopener">Documentation &amp; timeline ↗</a>
+    </div>
+  </div>
+
+  <figure style="margin-top:0;">
+    <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/e1cf93a7-d39c-4a71-8d07-0a9725a676c3/Screenshot+2025-12-19+at+12.45.52%E2%80%AFPM.png" alt="get-bls-data GitHub README screenshot">
+  </figure>
+
+  <div class="course-meta">
+    <strong>INFO 664 Programming for Cultural Heritage</strong><br>
+    Professor John Decker<br>
+    Pratt Institute School of Information | Spring 2025
+  </div>
+
+  <div class="prevnext">
+    <a href="energy-dash.html">← R | US Data Center &amp; Energy Dashboard</a>
+    <a href="tableau-labor.html">Tableau | Visualizing Labor Union History →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>Danielle Stemper</h3><p>New York, NY</p></div>
+    <div><h3>Contact</h3><p><a href="mailto:daniellestemp@gmail.com">daniellestemp@gmail.com</a></p></div>
+    <div><h3>Github</h3><p><a href="https://github.com/daniellestemp" target="_blank" rel="noopener">github.com/daniellestemp</a></p></div>
+    <div><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/danielle-stemper/" target="_blank" rel="noopener">in/danielle-stemper/</a></p></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Danielle Stemper 2026</span>
+    <span>Made with Squarespace</span>
+  </div>
+</footer>
+
+</body>
+</html>

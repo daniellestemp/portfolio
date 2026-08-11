@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau | Visualizing Labor Union History — DANIELLE STEMPER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">DANIELLE STEMPER</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="bio.html">Bio</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="project-hero">
+    <div class="tags">
+      <span class="tag-chip">Tableau</span>
+      <span class="tag-chip">Excel</span>
+      <span class="tag-chip">BLS</span>
+      <span class="tag-chip">US Census Bureau</span>
+    </div>
+    <h1>Visualizing Decades of Labor Data in Tableau Dashboards</h1>
+    <p class="project-lede">Curious about the evolution of U.S. labor unions, I wondered whether there was a better way to view and interact with historic labor and employment data — and built an interactive Tableau dashboard to find out.</p>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/42f85ac0-1e37-47d5-9c29-c22b9ed36745/Screenshot+2026-03-18+at+5.14.21%E2%80%AFPM.png" alt="Tableau dashboard preview of historic labor and employment data">
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>01 · Challenge</h2>
+    <p>The central challenge was visualizing hundreds of data points without overwhelming the viewer — choosing the right visualization types and tools would be key.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>02 · Solution</h2>
+    <p>An interactive Tableau dashboard visualizes the historic labor and employment data, paired with a separate static dashboard that zooms into specific snapshots to illustrate micro trends. R's geographic libraries added a mapped layer of key labor and economic variables for further context.</p>
+    <div class="img-pair">
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/935d2c99-ebc8-4448-8db2-13d2c1f029b3/Screenshot+2026-03-17+at+4.29.11%E2%80%AFPM.png" alt="Historic labor and employment data heatmap">
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/841909de-4945-40c7-b5cc-ef2a916f7db4/Screenshot+2026-03-17+at+4.33.37%E2%80%AFPM.png" alt="Static snapshot dashboard before and after COVID-19">
+    </div>
+    <p style="font-size:13px;color:var(--gray-500);">Left: users can select a state to view membership rates over time (<a href="https://public.tableau.com/views/SnapshotCovid-19/updateddash?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener" style="text-decoration:underline;">dashboard ↗</a>). Right: a static snapshot contrasts the steady pre-pandemic trend with more volatile membership and employment shifts around COVID-19 (<a href="https://public.tableau.com/views/SnapshotCovid-19/InteractiveDashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener" style="text-decoration:underline;">dashboard ↗</a>).</p>
+  </div>
+
+  <div class="art-section">
+    <h2>03 · Process: An Iterative Approach</h2>
+    <ul>
+      <li><strong>Start broad:</strong> explore union-specific data for historical patterns, relationships, and outliers.</li>
+      <li><strong>Employ best practices:</strong> lean on visualization techniques that communicate general trends clearly.</li>
+      <li><strong>Zoom in:</strong> dig into sector-level data for micro trends in membership and employment.</li>
+    </ul>
+    <p>Peer review and user testing then shaped revisions — feedback flagged the heat map's color scheme and key as hard to interpret, and pointed out that it wasn't always clear how stacked vs. side-by-side line graphs were meant to be read.</p>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/c11aa7da-fcdf-4bea-92b8-ad0c6a081298/Screenshot+2026-03-17+at+5.19.32%E2%80%AFPM.png" alt="Before and after comparison of Tableau visualizations">
+      <figcaption>Before &amp; after: original visualizations (left) vs. revised versions (right).</figcaption>
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>04 · Reflections</h2>
+    <ul>
+      <li><strong>Exploratory analysis is essential:</strong> understanding and cleaning the data structure has to happen before opening Tableau or R.</li>
+      <li><strong>User testing matters:</strong> incorporating outside perspectives improved the visualizations well beyond what a single point of view could catch.</li>
+      <li><strong>Data-driven vs. story-driven:</strong> with so much existing narrative around this topic, it took discipline to let the data lead rather than the other way around.</li>
+    </ul>
+  </div>
+
+  <div class="art-section">
+    <h2>Documentation</h2>
+    <div class="links-row">
+      <a class="link-chip" href="https://docs.google.com/document/d/1Z-J34iF3vVWx1d1cvuBXFGZwnmGau2IgTUFgVd3Uom8/edit?usp=sharing" target="_blank" rel="noopener">Project report ↗</a>
+      <a class="link-chip" href="https://drive.google.com/file/d/1E1-gAYdinDP7m96KGj9QnnMLRpn6F-q5/view?usp=sharing" target="_blank" rel="noopener">Project presentation ↗</a>
+    </div>
+  </div>
+
+  <div class="course-meta">
+    <strong>INFO 658 Information Visualization</strong><br>
+    Professor John Lauermann<br>
+    Pratt Institute School of Information | Spring 2025
+  </div>
+
+  <div class="prevnext">
+    <a href="python-research.html">← Python | Simplifying Research Workflows</a>
+    <a href="venmo-iou.html">Designing for Close-knit Communities: Venmo IOU →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>Danielle Stemper</h3><p>New York, NY</p></div>
+    <div><h3>Contact</h3><p><a href="mailto:daniellestemp@gmail.com">daniellestemp@gmail.com</a></p></div>
+    <div><h3>Github</h3><p><a href="https://github.com/daniellestemp" target="_blank" rel="noopener">github.com/daniellestemp</a></p></div>
+    <div><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/danielle-stemper/" target="_blank" rel="noopener">in/danielle-stemper/</a></p></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Danielle Stemper 2026</span>
+    <span>Made with Squarespace</span>
+  </div>
+</footer>
+
+</body>
+</html>

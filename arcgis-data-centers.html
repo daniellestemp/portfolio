@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R | ArcGIS | US Data Center Analysis — DANIELLE STEMPER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">DANIELLE STEMPER</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="bio.html">Bio</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="project-hero">
+    <div class="tags">
+      <span class="tag-chip">ArcGIS</span>
+      <span class="tag-chip">R</span>
+      <span class="tag-chip">US Energy Info Admin</span>
+      <span class="tag-chip">CDC</span>
+    </div>
+    <h1>Reckoning with the U.S. Data Center Boom: A Geographic Analysis</h1>
+    <p class="project-lede">As Big Tech pushes AI adoption, it's racing to build the physical infrastructure that supports it. This project is a geographic exploration of the socioeconomic factors — and costs — of the U.S. data center boom.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>01 · Challenge</h2>
+    <p>Data centers have become a hot-button issue as Big Tech races to expand AI infrastructure, drawing scrutiny from advocacy groups, residents, and lawmakers over environmental impact and a lack of regulation. Because data on data-center locations, energy use, and pricing is scattered and inconsistent, the goal of this project was to visually capture the potential relationships between them — building on Business Insider's public data-center location database.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>02 · Solution</h2>
+    <p>Using ArcGIS as the primary tool, this project maps the relationship between data centers and energy across the U.S. The research culminated in an academic poster presented at Pratt Institute's InfoShow 2026.</p>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/01c2c72e-14fd-4c80-98f5-7cb398095bac/28x42.jpg" alt="Academic poster: Reckoning with the U.S. Data Center Boom">
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>03 · Process</h2>
+    <h3>Data exploration &amp; analysis</h3>
+    <p>Primary sources included residential energy prices and industry energy usage from the U.S. Energy Information Administration, plus Business Insider's state- and county-level data center locations. Both datasets required geocoding before they could be mapped in R and Python.</p>
+    <h3>Geographic analysis: U.S. energy prices</h3>
+    <ul>
+      <li><strong>Accessing APIs:</strong> queried EIA data for average electricity price by state, 2020–2025, and cleaned it in Google Sheets.</li>
+      <li><strong>Geocoding &amp; volatility:</strong> loaded the dataset into R (<em>tidyverse, sf, tigris</em>) and computed a price-volatility column — the standard deviation of each state's average price — to add context beyond simple averages.</li>
+      <li><strong>Mapping in ArcGIS:</strong> built yearly average-price maps for 2020–2025, with a volatility map as the central visual and yearly maps as insets.</li>
+    </ul>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/2b414492-b498-43a2-89ba-13ac183adb20/Screenshot+2026-05-29+at+12.33.54%E2%80%AFPM.png" alt="Map of U.S. electricity price volatility by state">
+    </figure>
+    <h3>Geographic analysis: data centers &amp; the Social Vulnerability Index</h3>
+    <p>Using the CDC/ATSDR Social Vulnerability Index (SVI), this stage of the project asked: are data centers disproportionately located in socially vulnerable areas?</p>
+    <ul>
+      <li><strong>Accessing SVI data</strong> via ArcGIS Online and the CDC/ATSDR website.</li>
+      <li><strong>Spatial join</strong> to isolate data centers located in the most vulnerable counties, followed by a <strong>cluster and outlier analysis</strong> (Anselin Local Moran's I) to surface patterns in the SVI data.</li>
+    </ul>
+    <figure>
+      <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/55fb397e-4deb-4daf-ab4d-7a0ed41aa081/Screenshot+2026-05-29+at+12.33.39%E2%80%AFPM.png" alt="Spatial join and cluster/outlier analysis maps of data centers and social vulnerability">
+    </figure>
+  </div>
+
+  <div class="art-section">
+    <h2>04 · Findings &amp; Reflection</h2>
+    <h3>Energy prices</h3>
+    <ul>
+      <li>Every state's electricity got more expensive from 2020–2025 — Washington DC saw the largest surge (+73.7%), Iowa the smallest (+10.1%); the national average increase was roughly 29%.</li>
+      <li>Hawaii and California had the most volatile prices, while Iowa and North Dakota were the most stable. High-volatility states also tended to have the highest average prices.</li>
+    </ul>
+    <h3>SVI cluster &amp; outlier analysis</h3>
+    <ul>
+      <li>Large high-vulnerability clusters with nearby data centers appear across the Southeast, Gulf Coast, and Texas.</li>
+      <li>Some data centers sit in isolated pockets of high vulnerability scattered around the country.</li>
+      <li>The heaviest concentration of data centers is in low-vulnerability counties.</li>
+    </ul>
+    <p>Despite that low-vulnerability concentration, long-term impacts are still being studied, and mapping ongoing or planned construction remains difficult because tracking is siloed by locality. As more data becomes available, it should become easier to understand what draws data-center development to a given place and how local governments might regulate it.</p>
+  </div>
+
+  <div class="art-section">
+    <h2>Links &amp; Documentation</h2>
+    <div class="links-row">
+      <a class="link-chip" href="https://github.com/daniellestemp/mapping-US-data-centers" target="_blank" rel="noopener">GitHub README &amp; code ↗</a>
+      <a class="link-chip" href="https://www.daniellestemper.com/s/28x42-2.pdf" target="_blank" rel="noopener">View full poster ↗</a>
+    </div>
+  </div>
+
+  <figure style="margin-top:0;">
+    <img src="https://images.squarespace-cdn.com/content/v1/67db1988e344174e8708ac32/16838627-f935-4cf7-a391-9f3789208f61/dc-github-readme.jpg" alt="GitHub README screenshot for the data center mapping project">
+  </figure>
+
+  <div class="course-meta">
+    <strong>INFO 609 Intro to GIS</strong><br>
+    Professor John Lauermann<br>
+    Pratt Institute School of Information | Spring 2026
+  </div>
+
+  <div class="prevnext">
+    <a href="projects.html">← All Projects</a>
+    <a href="energy-dash.html">R | US Data Center &amp; Energy Dashboard →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>Danielle Stemper</h3><p>New York, NY</p></div>
+    <div><h3>Contact</h3><p><a href="mailto:daniellestemp@gmail.com">daniellestemp@gmail.com</a></p></div>
+    <div><h3>Github</h3><p><a href="https://github.com/daniellestemp" target="_blank" rel="noopener">github.com/daniellestemp</a></p></div>
+    <div><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/danielle-stemper/" target="_blank" rel="noopener">in/danielle-stemper/</a></p></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Danielle Stemper 2026</span>
+    <span>Made with Squarespace</span>
+  </div>
+</footer>
+
+</body>
+</html>
